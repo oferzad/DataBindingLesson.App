@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="DataBindingLesson.BindingWithHomeMadeClasses"
+             Title="BindingWithHomeMadeClasses">
+    <VerticalStackLayout>
+        <Grid Padding="10" HorizontalOptions="FillAndExpand">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Label Grid.Column="0" Grid.Row="0" x:Name="lbl"
+                                           Text="{Binding FirstName, Mode=TwoWay}" 
+                                           FontAttributes="Bold"/>
+            <Label Grid.Column="1" Grid.Row="0"
+                                           Text="{Binding LastName}" 
+                                           FontAttributes="Bold" HorizontalOptions="Center"/>
+            <Label Grid.Column="0" Grid.Row="1"
+                                           Text="{Binding BirthDate, StringFormat='{0:MMMM dd, yyyy}'}" 
+                                           FontAttributes="Italic"/>
+            <Label Grid.Column="1" Grid.Row="1"
+                                           Text="{Binding AverageScore}" 
+                                           FontAttributes="None" 
+                                           HorizontalOptions="Center"/>
+        </Grid>
+        <Button Text="Update Name" Clicked="Button_Clicked"></Button>
+        <Button Text="Use Command" Command="{Binding ButtonCommand}"></Button>
+    </VerticalStackLayout>
+</ContentPage>
